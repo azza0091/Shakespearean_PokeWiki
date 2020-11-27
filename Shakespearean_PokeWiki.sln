@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shakespearean_PokeWiki", "Shakespearean_PokeWiki\Shakespearean_PokeWiki.csproj", "{059D8CA7-6F3C-499E-8275-BCE16EC9D961}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shakespearean_PokeWiki.Tests", "Shakespearean_PokeWiki.Tests\Shakespearean_PokeWiki.Tests.csproj", "{A8F4059E-FAFC-4660-B1A6-8B6F9066151C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{059D8CA7-6F3C-499E-8275-BCE16EC9D961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059D8CA7-6F3C-499E-8275-BCE16EC9D961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059D8CA7-6F3C-499E-8275-BCE16EC9D961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059D8CA7-6F3C-499E-8275-BCE16EC9D961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F4059E-FAFC-4660-B1A6-8B6F9066151C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F4059E-FAFC-4660-B1A6-8B6F9066151C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F4059E-FAFC-4660-B1A6-8B6F9066151C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F4059E-FAFC-4660-B1A6-8B6F9066151C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0BB17EF-E2AC-4790-BE48-C91ADD451EE3}
+	EndGlobalSection
+EndGlobal
