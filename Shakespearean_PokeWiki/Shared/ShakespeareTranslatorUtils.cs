@@ -14,6 +14,9 @@ namespace Shakespearean_PokeWiki.Shared
         /// <summary>
         /// Get Shakespearean translation for a given text
         /// </summary>
+        /// <remarks>
+        /// Returns the translation in Shakespeare style for the given input text
+        /// </remarks>
         /// <param name="client"></param>
         /// <param name="endpoint"></param>
         /// <param name="text"></param>

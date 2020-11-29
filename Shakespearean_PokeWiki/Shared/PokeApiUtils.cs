@@ -14,6 +14,9 @@ namespace Shakespearean_PokeWiki.Shared
         /// <summary>
         /// Get Pokemon data
         /// </summary>
+        /// <remarks>
+        /// Returns data about the given Pokemon, by calling PokeApi
+        /// </remarks>
         /// <param name="client"></param>
         /// <param name="endpoint"></param>
         /// <returns></returns>
@@ -32,6 +35,9 @@ namespace Shakespearean_PokeWiki.Shared
         /// <summary>
         /// Get Pokemon species data
         /// </summary>
+        /// <remarks>
+        /// Returns data about the given Pokemon species, by calling PokeApi
+        /// </remarks>
         /// <param name="client"></param>
         /// <param name="endpoint"></param>
         /// <returns></returns>

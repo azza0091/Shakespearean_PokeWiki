@@ -20,13 +20,18 @@ namespace Shakespearean_PokeWiki.Controllers
         /// <summary>
         /// Get Pokemon description in Shakespearean style
         /// </summary>
-        /// <param name="pokemonName"></param>
+        /// <remarks>
+        /// Searches for the description of the given Pokèmon and returns it translated in Shakespearean style
+        /// </remarks>
+        /// <param name="pokemonName">name of the Pokemon to search</param>
         /// <response code="200">Operation successful</response>
-        /// <returns></returns>
+        /// <response code="404">Element not found</response>
+        /// <response code="500">Generic error. An error description is returned in response content</response>
+        /// <returns>TranslatedPokemonResponseModel object containing the Pokemon name and translated description</returns>
         [Route("pokemon/{pokemonName}")]
-        [SwaggerResponse(HttpStatusCode.OK, Description = "Operation successul")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(TranslatedPokemonResponseModel), Description = "Operation successul")]
         [SwaggerResponse(HttpStatusCode.NotFound, Description = "Element not found")]
-        [SwaggerResponse(HttpStatusCode.InternalServerError, Description = "Generic error. An error description is returned")]
+        [SwaggerResponse(HttpStatusCode.InternalServerError, Description = "Generic error. An error description is returned in response content")]
         [HttpGet]
         public async Task<IHttpActionResult> GetPokemonDataAsync(string pokemonName)
         {
