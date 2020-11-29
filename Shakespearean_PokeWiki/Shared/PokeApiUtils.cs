@@ -20,8 +20,12 @@ namespace Shakespearean_PokeWiki.Shared
         public static async Task<PokemonResponseModel> GetPokemonDataAsync(HttpClient client, string endpoint)
         {
             var response = await Helper.GetAsync(client, endpoint);
-            var pokemon = JsonConvert.DeserializeObject<PokemonResponseModel>(response);
 
+            if (response.ResponseCode != System.Net.HttpStatusCode.OK)
+                throw new HttpException((int)response.ResponseCode, response.ResponseMessage);
+
+            var pokemon = JsonConvert.DeserializeObject<PokemonResponseModel>(response.ResponseContent);
+            
             return pokemon;
         }
 
@@ -34,8 +38,12 @@ namespace Shakespearean_PokeWiki.Shared
         public static async Task<SpeciesReponseModel> GetPokemonSpeciesDataAsync(HttpClient client, string endpoint)
         {
             var response = await Helper.GetAsync(client, endpoint);
-            var pokemonSpecies = JsonConvert.DeserializeObject<SpeciesReponseModel>(response);
 
+            if (response.ResponseCode != System.Net.HttpStatusCode.OK)
+                throw new HttpException((int)response.ResponseCode, response.ResponseMessage);
+
+            var pokemonSpecies = JsonConvert.DeserializeObject<SpeciesReponseModel>(response.ResponseContent);
+            
             return pokemonSpecies;
         }
     }

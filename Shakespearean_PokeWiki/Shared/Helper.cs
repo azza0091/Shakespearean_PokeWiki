@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,12 +36,12 @@ namespace Shakespearean_PokeWiki.Shared
         /// <param name="client"></param>
         /// <param name="endpoint"></param>
         /// <returns></returns>
-        public static async Task<string> GetAsync(HttpClient client, string endpoint)
+        public static async Task<ServerResponse> GetAsync(HttpClient client, string endpoint)
         {
             var response = await client.GetAsync(endpoint);
             var responseContent = await response.Content.ReadAsStringAsync();
-
-            return responseContent;
+            
+            return new ServerResponse(response, responseContent);
         }
 
         /// <summary>
@@ -50,12 +51,27 @@ namespace Shakespearean_PokeWiki.Shared
         /// <param name="endpoint"></param>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static async Task<string> PostAsync(HttpClient client, string endpoint, HttpContent content)
+        public static async Task<ServerResponse> PostAsync(HttpClient client, string endpoint, HttpContent content)
         {
             var response = await client.PostAsync(endpoint, content);
             var responseContent = await response.Content.ReadAsStringAsync();
+            
+            return new ServerResponse(response, responseContent);
+        }
+    }
 
-            return responseContent;
+    public class ServerResponse
+    {
+        public HttpStatusCode ResponseCode { get; set; }
+        public string ResponseMessage { get; set; }
+        public string ResponseContent { get; set; }
+
+        public ServerResponse() { }
+        public ServerResponse(HttpResponseMessage response, string responseContent)
+        {
+            ResponseCode = response.StatusCode;
+            ResponseMessage = response.ReasonPhrase;
+            ResponseContent = responseContent;
         }
     }
 }

@@ -23,8 +23,17 @@ namespace Shakespearean_PokeWiki.Shared
             var jsonContent = Helper.CreateRequestContent(new ShakespeareTranslator_InputModel(text));
             var response = await Helper.PostAsync(client, endpoint, jsonContent);
 
-            var translation = JsonConvert.DeserializeObject<ShakespeareTranslator_ResponseModel>(response);
+            var translation = JsonConvert.DeserializeObject<ShakespeareTranslator_ResponseModel>(response.ResponseContent);
 
+            if (response.ResponseCode != System.Net.HttpStatusCode.OK)
+            {
+                var detailedErrorMessage = "";
+                if (translation.error != null && !string.IsNullOrEmpty(translation.error.message))
+                    detailedErrorMessage = translation.error.message;
+
+                throw new HttpException((int)response.ResponseCode, detailedErrorMessage != "" ? detailedErrorMessage : response.ResponseMessage);
+            }
+            
             return translation;
         }
     }
